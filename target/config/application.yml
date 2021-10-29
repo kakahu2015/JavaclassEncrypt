@@ -1,0 +1,17 @@
+server:
+ port: 8080
+ #servlet:
+ # context-path: /
+ ssl:
+ #启用ssl
+  enabled: false
+ #证书地址#
+  key-store: classpath:kakahu-top-tomcat-0529174929.jks
+  #key-store: classpath:localhost.jks
+ #证书密码
+  key-store-password: 3690379
+  #key-store-password: changeit
+ #证书类型
+  #key-store-type: JKS
+
+
