@@ -9,9 +9,8 @@ Generally speaking, there are several ways to encrypt bytecode in java developme
 The fifth method is used here, which currently implements encryption protection for common java projects and SpringBoot projects. Since Tomcat's war package deployment method is rarely used at present, the traditional Tomcat encryption method has not been implemented yet.
 Interested developers are welcome to discuss together.
 
-Encryption steps:
 
-Operating environment Linux x86-64, JDK 1.8.
+Environment: Linux x86-64, JDK 1.8.
 
 0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
 
