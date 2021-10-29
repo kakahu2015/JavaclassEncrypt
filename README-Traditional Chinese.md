@@ -9,9 +9,7 @@
 這裏采用第5種方式，目前實現了普通java項目、SpringBoot項目的加密保護。由於目前Tomcat的war包部署方式已經很少用，所以傳統的Tomcat加密方式尚未實現,
 歡迎有興趣的開發者一起探討。
 
-加密步驟:
-
-運行環境Linux x86-64、JDK 1.8。
+運行環境:Linux x86-64、JDK 1.8。
 
 0、動態鏈接庫只加加密、解密指定（org.kakahu.safe）包下面的class文件，所以您要加密的類務必放在org.kakahu.safe包中，否則無法被加密到。
 
