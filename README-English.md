@@ -1,4 +1,4 @@
-繁体中文(https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Traditional%20Chinese.md) 中文简体(https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Simplified%20Chinese.md)
+繁体中文(/https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Traditional%20Chinese.md) 中文简体(/https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Simplified%20Chinese.md)
 -------
 There are several ways to encrypt bytecode in java development:
 ====
