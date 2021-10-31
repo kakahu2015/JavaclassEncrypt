@@ -25,6 +25,6 @@ java -agentpath:/xxx/libus.so (dynamic link library path) -cp xxx.jar (encrypted
 4. If you want a quick experience, you can enter the project under the testDemo directory as a compiled and packaged project, you can use this as an encrypted jar to practice
 
 Docker support
-For details, please refer to the Dockerfile in the docker directory. Be sure to add the config and lib directories to the container, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) Build the image
+For details, please refer to the Dockerfile of the docker directory. Be sure to add the config and lib directories to the mirror together, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) to build the mirror
 
 This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
