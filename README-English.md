@@ -1,4 +1,4 @@
-[繁体中文](/https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Traditional%20Chinese.md)|[中文简体](/https://github.com/kakahu2015/JavaclassEncrypt/blob/master/README-Simplified%20Chinese.md)
+[繁体中文](/README-Traditional%20Chinese.md)|[中文简体](/README-Simplified%20Chinese.md)
 -------
 There are several ways to encrypt bytecode in java development:
 ====
@@ -13,7 +13,7 @@ The fifth method is used here, which currently implements encryption protection 
 Interested developers are welcome to discuss together.
 
 
-Environment Linux x86-64, JDK 1.8
+Environment: Linux x86-64, JDK 1.8
 ====
 
 0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
