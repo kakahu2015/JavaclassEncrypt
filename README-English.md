@@ -10,11 +10,7 @@ The fifth method is used here, which currently implements encryption protection 
 Interested developers are welcome to discuss together.
 
 
-<<<<<<< HEAD
 Environment Linux x86-64, JDK 1.8.
-=======
-Environment: Linux x86-64, JDK 1.8.
->>>>>>> 54706896b29cf0fc73073e38d592f5f82d2cfc04
 
 0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
 
@@ -28,11 +24,7 @@ java -agentpath:/xxx/libus.so (dynamic link library path) -cp xxx.jar (encrypted
 
 4. If you want a quick experience, you can enter the project under the testDemo directory as a compiled and packaged project, you can use this as an encrypted jar to practice
 
-<<<<<<< HEAD
 Docker support
 For details, please refer to the Dockerfile in the docker directory. Be sure to add the config and lib directories to the container, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) Build the image
 
 This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
-=======
-This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
->>>>>>> 54706896b29cf0fc73073e38d592f5f82d2cfc04

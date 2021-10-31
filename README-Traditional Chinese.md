@@ -9,11 +9,9 @@
 這裏采用第5種方式，目前實現了普通java項目、SpringBoot項目的加密保護。由於目前Tomcat的war包部署方式已經很少用，所以傳統的Tomcat加密方式尚未實現,
 歡迎有興趣的開發者一起探討。
 
-<<<<<<< HEAD
+
 運行環境Linux x86-64、JDK 1.8。
-=======
-運行環境:Linux x86-64、JDK 1.8。
->>>>>>> 54706896b29cf0fc73073e38d592f5f82d2cfc04
+
 
 0、動態鏈接庫只加加密、解密指定（org.kakahu.safe）包下面的class文件，所以您要加密的類務必放在org.kakahu.safe包中，否則無法被加密到。
 
@@ -27,12 +25,8 @@ java -agentpath:/xxx/libus.so(動態鏈接庫路徑) -cp xxx.jar（加密後的j
 
 4、如果您想快速體驗，可以進入testDemo目錄下的工程為編譯打包好的工程，您可以用這個作為加密jar來實踐
 
-<<<<<<< HEAD
 Docker支持
 詳見docker目錄的Dockerfile,務必把config、lib兩個目錄一並添加到容器內,然後運行docker build -t kakahu2015/jarencrypt:v0.1.0 .(這是個例子，具體版本號請自行替換)構建鏡像
 
 
 這種加密可用於保護核心java字節碼不被反編譯、以及商業license技術實現方案等，商業合作郵箱:kakahu@kakahu.org
-=======
-這種加密可用於保護核心java字節碼不被反編譯、以及商業license技術實現方案等，商業合作郵箱:kakahu@kakahu.org
->>>>>>> 54706896b29cf0fc73073e38d592f5f82d2cfc04
