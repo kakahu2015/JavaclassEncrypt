@@ -1,36 +1,37 @@
-一般而言java开发中字节码加密有以下几种方式： 
-====
-
-0. 混淆器，将jar包混淆后反编译出来的东西看起来就很眼花，但如果耐心一点也是可以看出来的。 
-1. 对jar包进行加密，然后在Java层重写类加载器对其进行解密，以达到对jar包的加密保护。包括用对称加密算法和非对称加密算法。不管用什么算法，在Java层面的类加载器实现的话，其实也作用不大，因为类加载器本身被反编译出来后就基本暴露无遗了。 
-2. 可以修改java编译后的class文件的某些属性，以让反编译软件分析不了，但它也不可靠，只要按照class格式深入分析下也能反编译出来。 
-3. 修改JDK源码，定制JDK就涉及到JVM的整体改动，而且还要求外部使用，不太可行。 
-4. 利用JDK中JVM的某些类似钩子机制和事件监听机制，监听加载class事件，使用本地方式完成class的解密。C/C++被编译后想要反编译就很麻烦了，另外还能加壳。这里就看看这种方式。
-
-这里采用第5种方式，目前实现了普通java项目、SpringBoot项目的加密保护。由于目前Tomcat的war包部署方式已经很少用，所以传统的Tomcat加密方式尚未实现,
-欢迎有兴趣的开发者一起探讨。
-
-
-运行环境Linux x86-64、JDK 1.8
-====
-
-0、动态链接库只加加密、解密指定（org.kakahu.safe）包下面的class文件，所以您要加密的类务必放在org.kakahu.safe包中，否则无法被加密到。
-
-1、SpringBoot由于自带类加载器会加载BOOT-INFO目录下的全部class文件，所以要对打出的jar包进行处理，可参照项目中的maven配置或者手工移动相关文件确保：
-lib、config(里面为application.yaml)与jar包在同一目录(另外一种思路是修改SpringBoot的类加载器，而不进行这个操作）。
-
-2、进入encrypt目录，编辑jarConfig.properties，然后运行java -jar encrypt.jar,完成jar包加密。
-
-3、如果你直接java -jar  xxx.jar(加密的jar) 一定会报错，因为有个class文件加密了，正确的运行方式为：
-java -agentpath:/xxx/libus.so(动态链接库路径) -cp xxx.jar（加密后的jar） 启动类全名（如org.kakahu.test.DemoApplication)。
-
-4、如果您想快速体验，可以进入testDemo目录下的工程为编译打包好的工程，您可以用这个作为加密jar来实践
-
-Docker支持
-====
-详见docker目录的Dockerfile,务必把config、lib两个目录一并添加到镜像内,然后运行docker build -t kakahu2015/jarencrypt:v0.1.0 .(这是个例子，具体版本号请自行替换)构建镜像
-
-
-这种加密可用于保护核心java字节码不被反编译、以及商业license技术实现方案等，商业合作邮箱:kakahu@kakahu.org
+[繁体中文](/README-Traditional%20Chinese.md)|[中文简体](/README-Simplified%20Chinese.md)
 -------
+There are several ways to encrypt bytecode in java development:
+====
 
+0. Obfuscator, what is decompiled after obfuscating the jar package looks very dazzling, but you can see it if you have a little patience.
+1. Encrypt the jar package, and then rewrite the class loader in the Java layer to decrypt it to achieve the encryption protection of the jar package. Including the use of symmetric encryption algorithms and asymmetric encryption algorithms. No matter what algorithm is used, the implementation of the class loader at the Java level is actually not very useful, because the class loader itself is basically exposed after being decompiled.
+2. You can modify some attributes of the class file compiled by java so that the decompiler cannot analyze it, but it is not reliable. It can be decompiled as long as it is analyzed in-depth according to the class format.
+3. Modify the JDK source code. Customizing the JDK involves the overall change of the JVM, and it also requires external use, which is not feasible.
+4. Use some similar hook mechanism and event monitoring mechanism of JVM in JDK to monitor loading class events, and use local methods to complete class decryption. After C/C++ is compiled, it is very troublesome to decompile, and it can also pack. Here is a look at this way.
+
+The fifth method is used here, which currently implements encryption protection for common java projects and SpringBoot projects. Since Tomcat's war package deployment method is rarely used at present, the traditional Tomcat encryption method has not been implemented yet.
+Interested developers are welcome to discuss together.
+
+
+Environment: Linux x86-64, JDK 1.8
+====
+
+0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
+
+1. Since SpringBoot comes with a class loader that will load all the class files in the BOOT-INFO directory, it is necessary to process the typed jar package. You can refer to the maven configuration in the project or manually move the relevant files to ensure:
+The lib, config (application.yaml inside) and the jar package are in the same directory (another idea is to modify the SpringBoot class loader without this operation).
+
+2. Enter the encrypt directory, edit jarConfig.properties, and then run java -jar encrypt.jar to complete the jar package encryption.
+
+3. If you directly java -jar xxx.jar (encrypted jar), you will definitely get an error, because a class file is encrypted. The correct operation method is:
+java -agentpath:/xxx/libus.so (dynamic link library path) -cp xxx.jar (encrypted jar) The full name of the startup class (such as org.kakahu.test.DemoApplication).
+
+4. If you want a quick experience, you can enter the project under the testDemo directory as a compiled and packaged project, you can use this as an encrypted jar to practice
+
+Docker support
+====
+For details, please refer to the Dockerfile of the docker directory. Be sure to add the config and lib directories to the mirror together, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) to build the mirror
+
+
+This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
+-------
