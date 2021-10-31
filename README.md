@@ -9,7 +9,6 @@
 这里采用第5种方式，目前实现了普通java项目、SpringBoot项目的加密保护。由于目前Tomcat的war包部署方式已经很少用，所以传统的Tomcat加密方式尚未实现,
 欢迎有兴趣的开发者一起探讨。
 
-加密步骤:
 
 运行环境Linux x86-64、JDK 1.8。
 
@@ -24,6 +23,9 @@ lib、config(里面为application.yaml)与jar包在同一目录(另外一种思�
 java -agentpath:/xxx/libus.so(动态链接库路径) -cp xxx.jar（加密后的jar） 启动类全名（如org.kakahu.test.DemoApplication)。
 
 4、如果您想快速体验，可以进入testDemo目录下的工程为编译打包好的工程，您可以用这个作为加密jar来实践
+
+Docker支持
+详见docker目录的Dockerfile,务必把config、lib两个目录一并添加到容器内,然后运行docker build -t kakahu2015/jarencrypt:v0.1.0 .(这是个例子，具体版本号请自行替换)构建镜像
 
 这种加密可用于保护核心java字节码不被反编译、以及商业license技术实现方案等，商业合作邮箱:kakahu@kakahu.org
 

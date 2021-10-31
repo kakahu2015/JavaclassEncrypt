@@ -9,9 +9,8 @@ Generally speaking, there are several ways to encrypt bytecode in java developme
 The fifth method is used here, which currently implements encryption protection for common java projects and SpringBoot projects. Since Tomcat's war package deployment method is rarely used at present, the traditional Tomcat encryption method has not been implemented yet.
 Interested developers are welcome to discuss together.
 
-Encryption steps:
 
-Operating environment Linux x86-64, JDK 1.8.
+Environment Linux x86-64, JDK 1.8.
 
 0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
 
@@ -24,5 +23,8 @@ The lib, config (application.yaml inside) and the jar package are in the same di
 java -agentpath:/xxx/libus.so (dynamic link library path) -cp xxx.jar (encrypted jar) The full name of the startup class (such as org.kakahu.test.DemoApplication).
 
 4. If you want a quick experience, you can enter the project under the testDemo directory as a compiled and packaged project, you can use this as an encrypted jar to practice
+
+Docker support
+For details, please refer to the Dockerfile in the docker directory. Be sure to add the config and lib directories to the container, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) Build the image
 
 This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
