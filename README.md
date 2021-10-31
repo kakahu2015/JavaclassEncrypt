@@ -25,7 +25,7 @@ java -agentpath:/xxx/libus.so(动态链接库路径) -cp xxx.jar（加密后的j
 4、如果您想快速体验，可以进入testDemo目录下的工程为编译打包好的工程，您可以用这个作为加密jar来实践
 
 Docker支持
-详见docker目录的Dockerfile,务必把config、lib两个目录一并添加到容器内,然后运行docker build -t kakahu2015/jarencrypt:v0.1.0 .(这是个例子，具体版本号请自行替换)构建镜像
+详见docker目录的Dockerfile,务必把config、lib两个目录一并添加到镜像内,然后运行docker build -t kakahu2015/jarencrypt:v0.1.0 .(这是个例子，具体版本号请自行替换)构建镜像
 
 这种加密可用于保护核心java字节码不被反编译、以及商业license技术实现方案等，商业合作邮箱:kakahu@kakahu.org
 
