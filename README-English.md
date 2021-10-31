@@ -1,4 +1,5 @@
 Generally speaking, there are several ways to encrypt bytecode in java development:
+====
 
 0. Obfuscator, what is decompiled after obfuscating the jar package looks very dazzling, but you can see it if you have a little patience.
 1. Encrypt the jar package, and then rewrite the class loader in the Java layer to decrypt it to achieve the encryption protection of the jar package. Including the use of symmetric encryption algorithms and asymmetric encryption algorithms. No matter what algorithm is used, the implementation of the class loader at the Java level is actually not very useful, because the class loader itself is basically exposed after being decompiled.
@@ -10,7 +11,8 @@ The fifth method is used here, which currently implements encryption protection 
 Interested developers are welcome to discuss together.
 
 
-Environment Linux x86-64, JDK 1.8.
+Environment Linux x86-64, JDK 1.8
+====
 
 0. The dynamic link library only encrypts and decrypts the class files under the specified (org.kakahu.safe) package, so the class you want to encrypt must be placed in the org.kakahu.safe package, otherwise it cannot be encrypted.
 
@@ -25,6 +27,9 @@ java -agentpath:/xxx/libus.so (dynamic link library path) -cp xxx.jar (encrypted
 4. If you want a quick experience, you can enter the project under the testDemo directory as a compiled and packaged project, you can use this as an encrypted jar to practice
 
 Docker support
+====
 For details, please refer to the Dockerfile of the docker directory. Be sure to add the config and lib directories to the mirror together, and then run docker build -t kakahu2015/jarencrypt:v0.1.0. (This is an example, please replace the specific version number by yourself) to build the mirror
 
+
 This kind of encryption can be used to protect the core java bytecode from being decompiled, as well as commercial license technology implementation solutions, etc. Commercial cooperation email: kakahu@kakahu.org
+-------
